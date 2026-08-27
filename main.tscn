@@ -1,0 +1,179 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id="1_main"]
+[ext_resource path="res://scripts/dino_pet.gd" type="Script" id="2_dino"]
+[ext_resource path="res://assets/dino_pet.png" type="Texture2D" id="3_dino_texture"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.949, 0.965, 0.878, 1)
+mouse_filter = 2
+
+[node name="Sun" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 80.0
+offset_right = 645.0
+offset_bottom = 160.0
+color = Color(1, 0.78, 0.27, 1)
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 70.0
+offset_right = -54.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15, 0.24, 0.20, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.65)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 58
+text = "Dino"
+horizontal_alignment = 1
+
+[node name="PetArea" type="Control" parent="Content"]
+custom_minimum_size = Vector2(0, 520)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ground" type="ColorRect" parent="Content/PetArea"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.56, 0.78, 0.38, 1)
+mouse_filter = 2
+
+[node name="DinoPet" type="TextureRect" parent="Content/PetArea"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -220.0
+offset_right = 210.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_dino_texture")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_dino")
+
+[node name="Stats" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="HungerRow" type="HBoxContainer" parent="Content/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Content/Stats/HungerRow"]
+custom_minimum_size = Vector2(185, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.26, 0.22, 1)
+theme_override_font_sizes/font_size = 30
+text = "Hunger"
+
+[node name="Bar" type="ProgressBar" parent="Content/Stats/HungerRow"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+show_percentage = false
+
+[node name="Value" type="Label" parent="Content/Stats/HungerRow"]
+custom_minimum_size = Vector2(68, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.26, 0.22, 1)
+theme_override_font_sizes/font_size = 28
+text = "100"
+horizontal_alignment = 2
+
+[node name="HappinessRow" type="HBoxContainer" parent="Content/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Content/Stats/HappinessRow"]
+custom_minimum_size = Vector2(185, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.26, 0.22, 1)
+theme_override_font_sizes/font_size = 30
+text = "Happiness"
+
+[node name="Bar" type="ProgressBar" parent="Content/Stats/HappinessRow"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+show_percentage = false
+
+[node name="Value" type="Label" parent="Content/Stats/HappinessRow"]
+custom_minimum_size = Vector2(68, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.26, 0.22, 1)
+theme_override_font_sizes/font_size = 28
+text = "100"
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Content"]
+custom_minimum_size = Vector2(0, 102)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Feed" type="Button" parent="Content/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "Feed"
+
+[node name="Play" type="Button" parent="Content/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "Play"
+
+[node name="Hint" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.31, 0.40, 0.34, 1)
+theme_override_font_sizes/font_size = 22
+text = "Take good care of your little friend!"
+horizontal_alignment = 1
+
